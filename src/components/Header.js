@@ -9,7 +9,7 @@ const Header = ({title, onClick}) => {
 }
 
 Header.defaultProps = {
-    title: 'Task Tracker',
+    title: 'Shopping List',
 }
 
 export default Header
