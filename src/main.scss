@@ -1,0 +1,69 @@
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'roboto';
+}
+
+.container {
+  max-width: 500px;
+  margin: 30px auto;
+  overflow: auto;
+  min-height: 300px;
+  border: 1px solid rgb(63, 63, 63);
+  padding: 30px;
+  border-radius: 5px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.add-button {
+  width: 100%;
+}
+
+
+
+.item.important {
+  border-left: 5px solid rgb(200, 0, 0);
+}
+
+
+.add-form {
+  margin-bottom: 40px;
+}
+
+.form {
+  margin: 2.4rem 0;
+  & .input {
+    width: 90%;
+    font-size: 2rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+}
+
+
+.form-control-check {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  & label {
+    flex-grow: 1;
+  }
+
+  & input {
+    flex-grow: 3;
+    height: 1.5rem;
+  }
+}
+
