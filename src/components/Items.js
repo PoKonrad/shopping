@@ -5,7 +5,7 @@ const Items = ({ items, onDelete, onCheckedToggle }) => {
         <>
           {items.map((item) => (
             <Item key={item.id} item={item} onDelete={onDelete} onCheckedToggle={onCheckedToggle} />
-          ))}  
+            ))}  
         </>
     )
 }
