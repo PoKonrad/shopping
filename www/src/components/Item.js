@@ -10,13 +10,13 @@ const Item = ({ item, onDelete, onCheckedToggle }) => {
             <Box sx={{ width: '100%', maxWidth: 500, bgcolor: 'background.paper' }}>
                 <List>
                     <Fade in={shown}>
-                    <Paper elevation={1}>
-                        <ListItem>
-                            <Checkbox edge='start' checked={item.checked} onClick={() => { onCheckedToggle(item.id) }}></Checkbox>
-                            <ListItemText primary={item.text} secondary={`Quantity: ${item.quantity}`} />
-                            <IconButton aria-label='delete' edge='end' onClick={() => {setShown(false);  setTimeout(() => { onDelete(item.id ); }, 400); }}><DeleteIcon /></IconButton>
-                        </ListItem>
-                    </Paper>
+                        <Paper elevation={1}>
+                            <ListItem>
+                                <Checkbox edge='start' checked={item.checked} onClick={() => { onCheckedToggle(item.id) }}></Checkbox>
+                                <ListItemText primary={item.text} secondary={`Quantity: ${item.quantity}`} />
+                                <IconButton aria-label='delete' edge='end' onClick={() => { setShown(false); setTimeout(() => { onDelete(item.id); }, 400); }}><DeleteIcon /></IconButton>
+                            </ListItem>
+                        </Paper>
                     </Fade>
                 </List>
             </Box>

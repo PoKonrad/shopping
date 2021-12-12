@@ -11,10 +11,11 @@ function App() {
   const [items, setItems] = useState([])
   const [created, setCreated] = useState(false)
   const [deleted, setDeleted] = useState(false)
-  // Get new items
+
+  // Get new items when the component renders
   useEffect(() => {
     ; (async () => {
-      const resp = await fetch('http://localhost:3500/list')
+      const resp = await fetch('api/list')
         .then(resp => resp.json())
       setItems(await resp)
     })();
@@ -23,26 +24,26 @@ function App() {
     }
   }, [])
 
+  // Function to get new items
   const getItems = async () => {
-    const resp = await fetch('http://localhost:3500/list')
+    const resp = await fetch('api/list')
       .then(resp => resp.json())
     setItems(await resp)
   }
 
 
-  // Set Non-Important
+  // Set checked
   const setChecked = async (id) => {
-    await fetch(`http://localhost:3500/list/${id}`, {
+    await fetch(`api/list/${id}`, {
       method: 'PATCH'
     })
-    setItems(items.map((item) => item.id === id ? { ...item, important: !item.important } : item))
     getItems()
   }
 
   // Delete Item
   const deleteItem = async (id) => {
     console.log(id)
-    await fetch(`http://localhost:3500/list/${id}`, {
+    await fetch(`api/list/${id}`, {
       method: 'DELETE'
     }).then(async resp => {
       getItems()
@@ -56,7 +57,7 @@ function App() {
   // Add Item
   const addItem = async (item) => {
     let body = (JSON.stringify(item))
-    await fetch('http://localhost:3500/list', {
+    await fetch('api/list', {
       method: 'POST',
       cache: 'no-cache',
       headers: {
@@ -73,6 +74,7 @@ function App() {
   }
 
   return (
+      // Notifications when a new item is created
     <Container maxWidth='sm'>
       <Snackbar open={created} autoHideDuration={4}>
         <Alert severity='success' sx={{ width: '100%' }}>
@@ -95,7 +97,7 @@ function App() {
           marginTop: 4
         }
         }>
-          
+
         <Header onClick={() => toggleShowAddItem(!showAddItem)} />
         {showAddItem && <AddItem fade={showAddItem} onAdd={addItem} />}
         <Divider />

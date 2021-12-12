@@ -1,0 +1,42 @@
+@font-face {
+  font-family: 'roboto';
+  src: url('./assets/Roboto-Regular.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'roboto';
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.add-button {
+  width: 100%;
+}
+
+.add-bottom {
+  margin-bottom: 2.5rem;
+}
+
+.form {
+  margin: 2.4rem 0;
+  & .input {
+    width: 90%;
+    font-size: 2rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+}
